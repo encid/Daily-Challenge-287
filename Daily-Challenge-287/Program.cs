@@ -7,11 +7,14 @@ namespace ConsoleApplication1 {
     class Program {
         static void Main(string[] args)
         {
-            Console.WriteLine("9184 -> " + LargestDigit(9184));
+            Console.WriteLine("9184 -> " + DescendingDigits(9184));
+            Console.WriteLine("417 -> " + DescendingDigits(417));
+            Console.WriteLine("45 -> " + DescendingDigits(45));
+            Console.WriteLine("2850 -> " + DescendingDigits(2850));
             Console.ReadLine();
         }
 
-        static string LargestDigit(int input)
+        static string DescendingDigits(int input)
         {
             string number = input.ToString();
             switch (number.Length) {
@@ -40,7 +43,7 @@ namespace ConsoleApplication1 {
             return s;
         }
 
-        static int DescendingDigits(int input)
+        static int LargestDigit(int input)
         {
             return 1;
         }
