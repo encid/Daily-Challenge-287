@@ -90,9 +90,8 @@ namespace ConsoleApplication1 {
         {
             var kapDict = new Dictionary<int, int>();
 
-            for (int i = 1000; i < 10000; i++) {
-                kapDict.Add(i, Kaprekar(i));
-            }
+            for (int i = 1000; i < 10000; i++) 
+                kapDict.Add(i, Kaprekar(i));            
 
             var items = from pair in kapDict
                         orderby pair.Value descending
