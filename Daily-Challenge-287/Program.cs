@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ConsoleApplication1 {
     class Program {
@@ -25,29 +24,21 @@ namespace ConsoleApplication1 {
             Console.WriteLine("Kaprekar(6589) -> " + Kaprekar(6589));
             Console.WriteLine("Kaprekar(5455) -> " + Kaprekar(5455));
             Console.WriteLine("Kaprekar(6174) -> " + Kaprekar(6174));
-            Console.WriteLine("Kaprekar(1000) -> " + Kaprekar(1044));
+            Console.WriteLine("Kaprekar(1000) -> " + Kaprekar(1000));
 
             Console.WriteLine(" ");
             Console.WriteLine("Most Kaprekar iterations: " + LargestKaprekar().ToString());
 
             Console.ReadLine();
-        }        
-
-        static string LargestDigit(int input)
-        {
-            List<char> numList = ConvertNumberToDescendingList(input);
-
-            return numList[0].ToString();
-
         }
 
-        static List<char> ConvertNumberToDescendingList(int input)
+        static string LargestDigit(int input)
         {
             string number = input.ToString("0000");
             List<char> numList = number.OrderByDescending(x => x).ToList();
 
-            return numList;
-        }        
+            return numList[0].ToString();
+        }
 
         static int ConvertToDescending(int input)
         {
@@ -55,13 +46,10 @@ namespace ConsoleApplication1 {
             List<char> numList = number.OrderByDescending(x => x).ToList();
 
             string s = "";
-            foreach (var item in numList) {
-                s += item;
-            }
+            foreach (var item in numList) 
+                s += item;            
 
-            int retVal = Convert.ToInt32(s);
-
-            return retVal;
+            return Convert.ToInt32(s);
         }
 
         static int ConvertToAscending(int input)
@@ -70,13 +58,10 @@ namespace ConsoleApplication1 {
             List<char> numList = number.OrderBy(x => x).ToList();
 
             string s = "";
-            foreach (var item in numList) {
-                s += item;
-            }
+            foreach (var item in numList)
+                s += item;            
 
-            int retVal = Convert.ToInt32(s);
-
-            return retVal;
+            return Convert.ToInt32(s);
         }
 
         static int Kaprekar(int input)
@@ -94,10 +79,8 @@ namespace ConsoleApplication1 {
 
             while (result != 6174)
             {
-                int a = ConvertToAscending(result);
-                int d = ConvertToDescending(result);
-                count += 1;
-                result = (d - a);
+                count++;
+                result = (ConvertToDescending(result) - ConvertToAscending(result));
             }
 
             return count;
